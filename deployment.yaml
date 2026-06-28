@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playground            # no namespace: here — Argo CD's destination places it in dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: playground
+  template:
+    metadata:
+      labels:
+        app: playground       # MUST match selector.matchLabels above
+    spec:
+      containers:
+        - name: playground
+          image: wil42/playground:v1   # the line you bump to :v2 to trigger a sync
+          ports:
+            - containerPort: 8888
