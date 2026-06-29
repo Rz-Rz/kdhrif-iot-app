@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: playground
-          image: wil42/playground:v1   # the line you bump to :v2 to trigger a sync
+          image: wil42/playground:v2   # the line you bump to :v2 to trigger a sync
           ports:
             - containerPort: 8888
